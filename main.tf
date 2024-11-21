@@ -132,7 +132,7 @@ resource "aws_eip" "one" {
   domain                    = "vpc"
   network_interface         = aws_network_interface.main-nic.id
   associate_with_private_ip = "10.0.1.50"
-  depends_on                = [aws_internet_gateway.main-gw, aws_network_interface.main-nic]
+  depends_on                = [aws_internet_gateway.main-gw, aws_network_interface.main-nic, aws_instance.web-server-instance]
 }
 
 output "server_public_ip" {
